@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.nitric/
+
+# docs_Chatbot sources: always local, never committed
+projectSources.yaml
+
+# tests inside nitric start
+tools/.venv-nitric/
+.nitric-project/
+report.xml
