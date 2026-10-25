@@ -16,9 +16,11 @@ It was **built by GAN_ecc's loop**:
 
 ```python
 import asyncio
-from custom_database import Cache
 
-LOOP = asyncio.get_event_loop()          # the loop the Nitric SDK used at import
+LOOP = asyncio.new_event_loop()          # make the loop and set it BEFORE importing the library:
+asyncio.set_event_loop(LOOP)             # the Nitric SDK picks up this loop when it is imported
+
+from custom_database import Cache
 cache = Cache("docs-chat")                # one handle = one namespace
 
 LOOP.run_until_complete(cache.set("price:VIN123", 4200, ttl=3600))

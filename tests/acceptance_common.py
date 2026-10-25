@@ -1,6 +1,8 @@
 import asyncio, uuid
 
-LOOP = asyncio.get_event_loop()
+LOOP = asyncio.new_event_loop()
+asyncio.set_event_loop(LOOP)   # set BEFORE the Nitric SDK is imported: its own get_event_loop() at import
+                               # then finds this loop (Python 3.14 makes get_event_loop() with no loop an error)
 
 
 def run(c):
